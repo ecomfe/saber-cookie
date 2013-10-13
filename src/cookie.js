@@ -18,6 +18,10 @@ define(function () {
      * @param {Object=} options Cookie选项
      */
     exports.set = function( name, value, options ) {
+        if ( !isValidName( name ) ) {
+            return;
+        }
+
         options = options || {};
 
         // expires, 单位毫秒
@@ -103,8 +107,6 @@ define(function () {
 
                 return '';
             }
-
-            return null;
         }
 
         return null;
