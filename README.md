@@ -76,7 +76,7 @@
 
 `options` {Object} 参数可选，支持的配置项:
 
-* `raw` {boolean} 是否强制解码(`decodeURIComponent`)
+* `raw` {boolean} 是否不自动解码(`decodeURIComponent`), 为`true`时会获取未经过解码的cookie原始存储值
 
 ##### 示例
 	
@@ -103,7 +103,7 @@
 * `domain` {string} cookie的域名
 * `path` {string} cookie路径
 * `secure` {boolean} cookie是否安全传输
-* `raw` {boolean} 是否强制解码(`decodeURIComponent`), 为`true`时参数`value`会以未编码的原始值存储
+* `raw` {boolean} 是否不自动编码(`encodeURIComponent`), 为`true`时参数`value`会以未编码的原始值存储
 
 ##### 示例
 
