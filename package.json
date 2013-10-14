@@ -1,0 +1,12 @@
+{
+    "name": "saber-cookie",
+    "version": "0.1.0",
+    "description": "适合移动端的Cookie封装。",
+    "main": "cookie",
+    "maintainers": [
+        { "name": "zfkun", "email": "zfkun@msn.com" }
+    ],
+    "license": "BSD",
+    "repository": "git://github.com/ecomfe/saber-cookie.git",
+    "bugs": "https://github.com/ecomfe/saber-cookie/issues"
+}
