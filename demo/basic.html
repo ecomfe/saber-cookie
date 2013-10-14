@@ -11,7 +11,7 @@
     <header>Cookie</header>
     <div class="container">
         <div class="result">
-            <strong>执行结果:</strong>  <span class="output"></span>
+            <strong>执行结果:</strong>  <span class="output" id="output"></span>
         </div>
 
         <form name="getterForm">
@@ -115,9 +115,8 @@
     }
 
     require( ['../src/cookie'], function( Cookie ) {
-        window.Cookie = Cookie;
-        var forms = [].slice.call( document.querySelectorAll('form') );
         var form;
+        var forms = makeArray( document.getElementsByTagName('form') );
         
         while ( (form = forms.pop()) ) {
             form.onsubmit = execApi;
@@ -183,7 +182,21 @@
         }
 
         function output( html ) {
-            document.querySelector('.output').innerHTML = html || '';
+            document.getElementById('output').innerHTML = html || '';
+        }
+
+        function makeArray( obj ) {
+            var array = [];
+            try {
+                array = [].slice.call( obj );
+            }
+            catch( e ) {
+                // IE ~~
+                for ( var i = 0, n = obj.length; i < n; i++ ) {
+                    array.push( obj[i] );
+                }
+            }
+            return array;
         }
     });
     </script>
