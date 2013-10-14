@@ -1,6 +1,6 @@
 define(function() {
 
-    Cookie = require( 'saber-cookie' );
+    var Cookie = require( 'saber-cookie' );
 
     describe( 'Cookie', function() {
 

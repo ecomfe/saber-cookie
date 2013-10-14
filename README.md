@@ -138,7 +138,6 @@
 
 `options` {Object} 参数可选，支持的配置项:
 
-* `expires` {Date|Number} cookie的过期时间, 为数字时单位为`毫秒`
 * `domain` {string} cookie的域名
 * `path` {string} cookie路径
 * `secure` {boolean} cookie是否安全传输
