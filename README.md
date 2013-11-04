@@ -152,7 +152,7 @@
 
 ## Test
 
-使用 `edp webservice` 启动 Web Server
+使用 `edp webserver` 启动 Web Server
 
     edp ws start
 
