@@ -13,9 +13,14 @@ define(function () {
      * 设置Cookie的值
      * 
      * @public
-     * @param {string} name Cookie名
-     * @param {string} value Cookie值
-     * @param {Object=} options Cookie选项
+     * @param {string} name cookie键名
+     * @param {string} value cookie原始值
+     * @param {Object=} options cookie选项
+     * @param {boolean=} options.raw 是否不自动编码
+     * @param {number=|Date=} options.expires 有效期，为数字时单位为毫秒
+     * @param {string=} options.domain 域名
+     * @param {string=} options.path 路径
+     * @param {boolean=} options.secure 是否安全传输
      */
     exports.set = function( name, value, options ) {
         if ( !isValidName( name ) ) {
@@ -24,7 +29,6 @@ define(function () {
 
         options = options || {};
 
-        // expires, 单位毫秒
         var date = options.expires;
         if ( 'number' === typeof date ) {
             date = new Date();
@@ -43,9 +47,10 @@ define(function () {
      * 获取Cookie的值
      * 
      * @public 
-     * @param {string} name Cookie名
-     * @param {Object=} options Cookie选项
-     * @return {?string} 获取的Cookie值，获取不到时返回null
+     * @param {string} name cookie键名
+     * @param {Object=} options cookie选项
+     * @param {boolean=} options.raw 是否不自动编码
+     * @return {?string} 获取的cookie值，获取不到时返回null
      */
     exports.get = function( name, options ) {
         options = options || {};
@@ -55,12 +60,16 @@ define(function () {
     /**
      * 删除Cookie
      * 
-     * @param {string} name 需要删除Cookie的键名
-     * @param {Object=} options 需要删除Cookie的配置
+     * @param {string} name 需要删除cookie的键名
+     * @param {Object=} options 需要删除cookie的配置
+     * @param {string=} options.domain 域名
+     * @param {string=} options.path 路径
+     * @param {boolean=} options.secure 是否安全传输
      */
     exports.remove = function( name, options ) {
         options = options || {};
-        options.expires = new Date(0);
+        options.raw = !0;
+        options.expires = new Date( 0 );
         this.set( name, '', options );
     };
 
@@ -90,11 +99,11 @@ define(function () {
     /**
      * 解析Cookie
      * 
-     * @param {string} name Cookie名
-     * @param {boolean} needDecod 是否自动解码
-     * @return {?string} 获取的Cookie值，获取不到时返回null
+     * @param {string} name cookie键名
+     * @param {boolean} needDecode 是否自动解码
+     * @return {?string} 获取的cookie值，获取不到时返回null
      */
-    function parseCookie( name, needDecod ) {
+    function parseCookie( name, needDecode ) {
         if ( isNotEmptyString( name ) ) {
             var matchs = String( document.cookie ).match(
                 new RegExp( '(?:^| )' + name + '(?:(?:=([^;]*))|;|$)' )
@@ -102,7 +111,7 @@ define(function () {
 
             if ( matchs ) {
                 if ( (matchs = matchs[1]) ) {
-                    return needDecod ? decodeURIComponent( matchs ) : matchs;
+                    return needDecode ? decodeURIComponent( matchs ) : matchs;
                 }
 
                 return '';
