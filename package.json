@@ -1,11 +1,17 @@
 {
     "name": "saber-cookie",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "适合移动端的Cookie封装。",
     "main": "cookie",
     "maintainers": [
         { "name": "zfkun", "email": "zfkun@msn.com" }
     ],
+    "scripts": {
+        "test": "./node_modules/.bin/phantomjs test/run-jasmine.js test/runner.html"
+    },
+    "devDependencies": {
+        "phantomjs": "~1.9"
+    },
     "license": "BSD",
     "repository": "git://github.com/ecomfe/saber-cookie.git",
     "bugs": "https://github.com/ecomfe/saber-cookie/issues"

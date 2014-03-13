@@ -2,13 +2,15 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <title>Jasmine Spec Runner</title>
-        <link rel="stylesheet" type="text/css" href="http://saberlabs.github.io/static/jasmine/2.0.0/jasmine.css">
-        <script type="text/javascript" src="http://saberlabs.github.io/static/jasmine/2.0.0/jasmine.js"></script>
-        <script type="text/javascript" src="http://saberlabs.github.io/static/jasmine/2.0.0/jasmine-html.js"></script>
-        <script type="text/javascript" src="http://saberlabs.github.io/static/jasmine/2.0.0/boot.js"></script>
-
-        <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-6/esl.js"></script>
+        <link rel="stylesheet" href="http://saberlabs.github.io/static/jasmine/2.0.0/jasmine.css">
+        <script src="http://saberlabs.github.io/static/jasmine/2.0.0/jasmine.js"></script>
+        <script src="http://saberlabs.github.io/static/jasmine/2.0.0/jasmine-html.js"></script>
+        <script src="http://saberlabs.github.io/static/jasmine/2.0.0/console.js"></script>
+        <script src="http://saberlabs.github.io/static/jasmine/2.0.0/boot.js"></script>
+        <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-10/esl.js"></script>
+        <script src="consoleReporter.js"></script>
     </head>
     <body>
         <script>
@@ -22,7 +24,7 @@
             ]
         });
 
-        require( [ 'cookie.test' ] );
+        require( [ 'cookie.spec' ] );
         </script>
     </body>
 </html>
