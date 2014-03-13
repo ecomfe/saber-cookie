@@ -9,12 +9,12 @@ define(function() {
 
     describe( 'Cookie', function() {
 
-        var rawText = 'Hi，百度！ !@#%$(~...';
+        var rawText = 'Hi, saber !@#%$(~...';
 
         describe( 'get', function() {
 
             document.cookie = '__saber_g1=1';
-            document.cookie = '__saber_g2';
+            // document.cookie = '__saber_g2';
             document.cookie = '__saber_g3=';
             document.cookie = '__saber_g4[abc]=x';
             document.cookie = '__saber_g5=' + encodeURIComponent( rawText );
@@ -22,7 +22,7 @@ define(function() {
             it( 'should return string value for the given name.', function() {
 
                 expect( Cookie.get( '__saber_g1' ) ).toEqual( '1' );
-                expect( Cookie.get( '__saber_g2' ) ).toEqual( '' );
+                // expect( Cookie.get( '__saber_g2' ) ).toEqual( '' );
                 expect( Cookie.get( '__saber_g3' ) ).toEqual( '' );
                 expect( Cookie.get( '__saber_g5' ) ).toEqual( rawText );
 
@@ -72,7 +72,7 @@ define(function() {
 
         describe( 'set', function() {
 
-            var rawText = 'Hi，百度一下，你就知道！';
+            var rawText = 'Hi, welcome to saber !';
             var rawOption = { raw: true };
 
             it( 'should set a cookie with given name and value.', function() {

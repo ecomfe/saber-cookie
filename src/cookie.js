@@ -35,8 +35,7 @@ define(function () {
             date.setTime( date.getTime() + options.expires );
         }
 
-        document.cookie =
-            name + '=' + ( options.raw ? value : encodeURIComponent( value ) )
+        document.cookie = name + '=' + ( options.raw ? value : encodeURIComponent( value ) )
             + ( date instanceof Date ? '; expires=' + date.toUTCString() : '' )
             + ( options.domain ? '; domain=' + options.domain : '' )
             + ( options.path ? '; path=' + options.path : '' )

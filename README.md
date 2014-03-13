@@ -6,11 +6,11 @@
 
 ## Usage
 
-##### 通过`edp`引入模块
+### 通过`edp`引入模块
 
     edp import saber-cookie
 
-##### 使用示例:
+### 使用示例:
 
 ```javascript
 require( 'saber-cookie', function( Cookie ) {
@@ -47,7 +47,7 @@ require( 'saber-cookie', function( Cookie ) {
     // create a cookie with raw value
     Cookie.set(
         '__saber_raw',
-        '百度一下,你就知道~~',
+        'hello, saber',
         { raw: true }
     );
     console.info(
@@ -71,7 +71,7 @@ require( 'saber-cookie', function( Cookie ) {
 
 获取键名为`name`的cookie值, 若cookie不存在或`name`为空，则返回`null`
 
-##### 参数
+#### 参数
 
 `name` {string} cookie的键名
 
@@ -79,7 +79,7 @@ require( 'saber-cookie', function( Cookie ) {
 
 * `raw` {boolean} 是否不自动解码(`decodeURIComponent`), 为`true`时会获取未经过解码的cookie原始存储值
 
-##### 示例
+#### 示例
 
 ```javascript
 // 获取键名为 mycookie 的cookie值
@@ -93,7 +93,7 @@ Cookie.get( 'rawcookie', { raw: true } );
 
 设置键名为`name`,值为`value`的新cookie
 
-##### 参数
+#### 参数
 
 `name` {string} cookie的键名
 
@@ -107,7 +107,7 @@ Cookie.get( 'rawcookie', { raw: true } );
 * `secure` {boolean} cookie是否安全传输
 * `raw` {boolean} 是否不自动编码(`encodeURIComponent`), 为`true`时参数`value`会以未编码的原始值存储
 
-##### 示例
+#### 示例
 
 ```javascript
 // 默认(session级)的新cookie
@@ -128,14 +128,14 @@ Cookie.set( 'test4', 'baidu', { domain: 'baidu.com' });
 Cookie.set( 'test5', 'baidu', { secure: true });
 
 // 禁用自动编码(encodeURIComponent)的cookie
-Cookie.set( 'test6', '百度一下，你就知道~~', { raw: true } );
+Cookie.set( 'test6', 'hello, saber', { raw: true } );
 ```
 
 ### Cookie.remove( name [, options] )
 
 删除键名为`name`的cookie
 
-##### 参数
+#### 参数
 
 `name` {string} cookie的键名
 
@@ -145,7 +145,7 @@ Cookie.set( 'test6', '百度一下，你就知道~~', { raw: true } );
 * `path` {string} cookie路径
 * `secure` {boolean} cookie是否安全传输
 
-##### 示例
+#### 示例
 
 ```javascript
 // 删除键名为 mycookie 的cookie
