@@ -1,4 +1,4 @@
-# saber-cookie [![Build Status](https://travis-ci.org/ecomfe/saber-emitter.png)](https://travis-ci.org/ecomfe/saber-emitter)
+# saber-cookie [![Build Status](https://travis-ci.org/ecomfe/saber-cookie.png)](https://travis-ci.org/ecomfe/saber-cookie)
 
 适合移动端的Cookie封装
 
