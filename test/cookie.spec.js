@@ -1,3 +1,8 @@
+/**
+ * @file cookie spec
+ * @author zfkun(zfkun@msn.com)
+ */
+
 define(function() {
 
     var Cookie = require( 'saber-cookie' );
@@ -52,8 +57,7 @@ define(function() {
             });
 
             it(
-                'should return raw value for the given name'
-                + ' when `options.raw = true`.',
+                'should return raw value for the given name when `options.raw = true`.',
                 function() {
 
                     expect(
@@ -114,8 +118,7 @@ define(function() {
             });
 
             it(
-                'should set a cookie with given name and value'
-                + ' when `options.raw = true`.',
+                'should set a cookie with given name and value when `options.raw = true`.',
                 function() {
 
                     Cookie.set( '__saber_s6', rawText, rawOption );
