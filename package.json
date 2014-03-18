@@ -1,13 +1,13 @@
 {
     "name": "saber-cookie",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "适合移动端的Cookie封装。",
     "main": "cookie",
     "maintainers": [
         { "name": "zfkun", "email": "zfkun@msn.com" }
     ],
     "scripts": {
-        "test": "phantomjs test/run-jasmine.js test/runner.html"
+        "test": "./node_modules/.bin/phantomjs test/run-jasmine.js test/runner.html"
     },
     "devDependencies": {
         "phantomjs": "~1.9"
