@@ -155,16 +155,6 @@ Cookie.remove( 'mycookie' );
 Cookie.remove( 'othercookie', { domain: 'baidu.com', path: '/' } );
 ```
 
-## Test
-
-使用 `edp webserver` 启动 Web Server
-
-    edp ws start
-
-访问
-
-    http://localhost:8848/test/runner.html
-
 ===
 
 [![Saber](https://f.cloud.github.com/assets/157338/1485433/aeb5c72a-4714-11e3-87ae-7ef8ae66e605.png)](http://ecomfe.github.io/saber/)
