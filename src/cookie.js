@@ -7,6 +7,12 @@
 
 define(function () {
 
+    /**
+     * Cookie
+     * 
+     * @exports Cookie
+     * @module Cookie
+     */
     var exports = {};
 
     /**
@@ -17,7 +23,7 @@ define(function () {
      * @param {string} value cookie原始值
      * @param {Object=} options cookie选项
      * @param {boolean=} options.raw 是否不自动编码
-     * @param {number=|Date=} options.expires 有效期，为数字时单位为毫秒
+     * @param {(number | Date)=} options.expires 有效期，为数字时单位为毫秒
      * @param {string=} options.domain 域名
      * @param {string=} options.path 路径
      * @param {boolean=} options.secure 是否安全传输
@@ -59,6 +65,7 @@ define(function () {
     /**
      * 删除Cookie
      * 
+     * @public
      * @param {string} name 需要删除cookie的键名
      * @param {Object=} options 需要删除cookie的配置
      * @param {string=} options.domain 域名
@@ -87,6 +94,7 @@ define(function () {
     /**
      * 验证字符串是否合法的cookie键名
      * 
+     * @inner
      * @param {string} name 待验证的键名字符串
      * @return {boolean}
      */
@@ -98,6 +106,7 @@ define(function () {
     /**
      * 解析Cookie
      * 
+     * @inner
      * @param {string} name cookie键名
      * @param {boolean} needDecode 是否自动解码
      * @return {?string} 获取的cookie值，获取不到时返回null
