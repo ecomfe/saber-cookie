@@ -1,6 +1,6 @@
 /**
  * Saber
- * 
+ *
  * @file Cookie
  * @author zfkun(zfkun@msn.com)
  */
@@ -9,7 +9,7 @@ define(function () {
 
     /**
      * Cookie
-     * 
+     *
      * @exports Cookie
      * @module Cookie
      */
@@ -17,7 +17,7 @@ define(function () {
 
     /**
      * 设置Cookie的值
-     * 
+     *
      * @public
      * @param {string} name cookie键名
      * @param {string} value cookie原始值
@@ -50,8 +50,8 @@ define(function () {
 
     /**
      * 获取Cookie的值
-     * 
-     * @public 
+     *
+     * @public
      * @param {string} name cookie键名
      * @param {Object=} options cookie选项
      * @param {boolean=} options.raw 是否不自动编码
@@ -64,7 +64,7 @@ define(function () {
 
     /**
      * 删除Cookie
-     * 
+     *
      * @public
      * @param {string} name 需要删除cookie的键名
      * @param {Object=} options 需要删除cookie的配置
@@ -82,7 +82,7 @@ define(function () {
 
     /**
      * 空字符串检查
-     * 
+     *
      * @inner
      * @param {?string} str 目标字符串
      * @return {boolean}
@@ -93,7 +93,7 @@ define(function () {
 
     /**
      * 验证字符串是否合法的cookie键名
-     * 
+     *
      * @inner
      * @param {string} name 待验证的键名字符串
      * @return {boolean}
@@ -105,7 +105,7 @@ define(function () {
 
     /**
      * 解析Cookie
-     * 
+     *
      * @inner
      * @param {string} name cookie键名
      * @param {boolean} needDecode 是否自动解码
@@ -113,13 +113,13 @@ define(function () {
      */
     function parseCookie( name, needDecode ) {
         if ( isNotEmptyString( name ) ) {
-            var matchs = String( document.cookie ).match(
+            var matches = String( document.cookie ).match(
                 new RegExp( '(?:^| )' + name + '(?:(?:=([^;]*))|;|$)' )
             );
 
-            if ( matchs ) {
-                if ( (matchs = matchs[1]) ) {
-                    return needDecode ? decodeURIComponent( matchs ) : matchs;
+            if ( matches ) {
+                if ( (matches = matches[1]) ) {
+                    return needDecode ? decodeURIComponent( matches ) : matches;
                 }
 
                 return '';
