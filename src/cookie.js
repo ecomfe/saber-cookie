@@ -5,7 +5,7 @@
  * @author zfkun(zfkun@msn.com)
  */
 
-define(function () {
+define( function ( require, exports, module ) {
 
     /**
      * Cookie
@@ -13,7 +13,7 @@ define(function () {
      * @exports Cookie
      * @module Cookie
      */
-    var exports = {};
+    var Cookie = {};
 
     /**
      * 设置Cookie的值
@@ -23,12 +23,12 @@ define(function () {
      * @param {string} value cookie原始值
      * @param {Object=} options cookie选项
      * @param {boolean=} options.raw 是否不自动编码
-     * @param {(number | Date)=} options.expires 有效期，为数字时单位为毫秒
+     * @param {(number= | Date=)} options.expires 有效期，为数字时单位为毫秒
      * @param {string=} options.domain 域名
      * @param {string=} options.path 路径
      * @param {boolean=} options.secure 是否安全传输
      */
-    exports.set = function( name, value, options ) {
+    Cookie.set = function ( name, value, options ) {
         if ( !isValidName( name ) ) {
             return;
         }
@@ -57,7 +57,7 @@ define(function () {
      * @param {boolean=} options.raw 是否不自动编码
      * @return {?string} 获取的cookie值，获取不到时返回null
      */
-    exports.get = function( name, options ) {
+    Cookie.get = function ( name, options ) {
         options = options || {};
         return parseCookie( isValidName( name ) ? name : '', !options.raw );
     };
@@ -72,7 +72,7 @@ define(function () {
      * @param {string=} options.path 路径
      * @param {boolean=} options.secure 是否安全传输
      */
-    exports.remove = function( name, options ) {
+    Cookie.remove = function ( name, options ) {
         options = options || {};
         options.raw = !0;
         options.expires = new Date( 0 );
@@ -87,7 +87,7 @@ define(function () {
      * @param {?string} str 目标字符串
      * @return {boolean}
      */
-    function isNotEmptyString( str ) {
+    function isNotEmptyString ( str ) {
         return typeof str === 'string' && str !== '';
     }
 
@@ -98,7 +98,7 @@ define(function () {
      * @param {string} name 待验证的键名字符串
      * @return {boolean}
      */
-    function isValidName( name ) {
+    function isValidName ( name ) {
         return isNotEmptyString( name );
     }
 
@@ -111,14 +111,14 @@ define(function () {
      * @param {boolean} needDecode 是否自动解码
      * @return {?string} 获取的cookie值，获取不到时返回null
      */
-    function parseCookie( name, needDecode ) {
+    function parseCookie ( name, needDecode ) {
         if ( isNotEmptyString( name ) ) {
             var matches = String( document.cookie ).match(
                 new RegExp( '(?:^| )' + name + '(?:(?:=([^;]*))|;|$)' )
             );
 
             if ( matches ) {
-                if ( (matches = matches[1]) ) {
+                if ( ( matches = matches[ 1 ] ) ) {
                     return needDecode ? decodeURIComponent( matches ) : matches;
                 }
 
@@ -129,6 +129,6 @@ define(function () {
         return null;
     }
 
-    return exports;
+    return Cookie;
 
-});
+} );
