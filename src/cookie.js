@@ -28,24 +28,24 @@ define(function () {
      * @param {string=} options.path 路径
      * @param {boolean=} options.secure 是否安全传输
      */
-    exports.set = function( name, value, options ) {
-        if ( !isValidName( name ) ) {
+    exports.set = function(name, value, options) {
+        if (!isValidName(name)) {
             return;
         }
 
         options = options || {};
 
         var date = options.expires;
-        if ( 'number' === typeof date ) {
+        if ('number' === typeof date) {
             date = new Date();
-            date.setTime( date.getTime() + options.expires );
+            date.setTime(date.getTime() + options.expires);
         }
 
-        document.cookie = name + '=' + ( options.raw ? value : encodeURIComponent( value ) )
-            + ( date instanceof Date ? '; expires=' + date.toUTCString() : '' )
-            + ( options.domain ? '; domain=' + options.domain : '' )
-            + ( options.path ? '; path=' + options.path : '' )
-            + ( options.secure ? '; secure' : '' );
+        document.cookie = name + '=' + (options.raw ? value : encodeURIComponent(value))
+            + (date instanceof Date ? '; expires=' + date.toUTCString() : '')
+            + (options.domain ? '; domain=' + options.domain : '')
+            + (options.path ? '; path=' + options.path : '')
+            + (options.secure ? '; secure' : '');
     };
 
     /**
@@ -57,9 +57,9 @@ define(function () {
      * @param {boolean=} options.raw 是否不自动编码
      * @return {?string} 获取的cookie值，获取不到时返回null
      */
-    exports.get = function( name, options ) {
+    exports.get = function(name, options) {
         options = options || {};
-        return parseCookie( isValidName( name ) ? name : '', !options.raw );
+        return parseCookie(isValidName(name) ? name : '', !options.raw);
     };
 
     /**
@@ -72,11 +72,11 @@ define(function () {
      * @param {string=} options.path 路径
      * @param {boolean=} options.secure 是否安全传输
      */
-    exports.remove = function( name, options ) {
+    exports.remove = function(name, options) {
         options = options || {};
         options.raw = !0;
-        options.expires = new Date( 0 );
-        this.set( name, '', options );
+        options.expires = new Date(0);
+        this.set(name, '', options);
     };
 
 
@@ -87,7 +87,7 @@ define(function () {
      * @param {?string} str 目标字符串
      * @return {boolean}
      */
-    function isNotEmptyString( str ) {
+    function isNotEmptyString(str) {
         return typeof str === 'string' && str !== '';
     }
 
@@ -98,8 +98,8 @@ define(function () {
      * @param {string} name 待验证的键名字符串
      * @return {boolean}
      */
-    function isValidName( name ) {
-        return isNotEmptyString( name );
+    function isValidName(name) {
+        return isNotEmptyString(name);
     }
 
 
@@ -111,15 +111,15 @@ define(function () {
      * @param {boolean} needDecode 是否自动解码
      * @return {?string} 获取的cookie值，获取不到时返回null
      */
-    function parseCookie( name, needDecode ) {
-        if ( isNotEmptyString( name ) ) {
-            var matches = String( document.cookie ).match(
-                new RegExp( '(?:^| )' + name + '(?:(?:=([^;]*))|;|$)' )
-            );
+    function parseCookie(name, needDecode) {
+        if (isNotEmptyString(name)) {
+            var matches = String(document.cookie).match(
+                new RegExp('(?:^|)' + name + '(?:(?:=([^;]*))|;|$)')
+           );
 
-            if ( matches ) {
-                if ( (matches = matches[1]) ) {
-                    return needDecode ? decodeURIComponent( matches ) : matches;
+            if (matches) {
+                if ((matches = matches[1])) {
+                    return needDecode ? decodeURIComponent(matches) : matches;
                 }
 
                 return '';

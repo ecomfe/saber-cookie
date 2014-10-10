@@ -120,92 +120,92 @@
     </div>
 
     <script>
-    if ( !String.prototype.trim ) {
+    if (!String.prototype.trim) {
         String.prototype.trim = function() {
-            return this.replace( /^[\s\xa0\u3000]+|[\u3000\xa0\s]+$/g, '' );
+            return this.replace(/^[\s\xa0\u3000]+|[\u3000\xa0\s]+$/g, '');
         };
     }
 
-    require( ['saber-cookie'], function( Cookie ) {
+    require(['saber-cookie'], function(Cookie) {
         var form;
-        var forms = makeArray( document.getElementsByTagName('form') );
-        
-        while ( (form = forms.pop()) ) {
+        var forms = makeArray(document.getElementsByTagName('form'));
+
+        while ((form = forms.pop())) {
             form.onsubmit = execApi;
         }
 
         function execApi() {
             try {
                 var fields = this.elements;
-                var api = val( fields['api'] );
-                var name = val( fields['key'] );
-                var value = val( fields['val'] );
+                var api = val(fields['api']);
+                var name = val(fields['key']);
+                var value = val(fields['val']);
                 var options = {
-                    expires: Number( val( fields['expires'] ) ) || '',
-                    path: val( fields['path'] ).trim(),
-                    domain: val( fields['domain'] ).trim(),
-                    secure: val( fields['secure'] ) > 0,
-                    raw: val( fields['raw'] ) > 0
+                    expires: Number(val(fields['expires'])) || '',
+                    path: val(fields['path']).trim(),
+                    domain: val(fields['domain']).trim(),
+                    secure: val(fields['secure']) > 0,
+                    raw: val(fields['raw']) > 0
                 };
                 var v;
 
                 output();
 
-                if ( name.length < 1 || ( api === 'set' && value.length < 1 ) ) {
+                if (name.length < 1 || (api === 'set' && value.length < 1)) {
                     return false;
                 }
 
-                if ( api === 'set' ) {
-                    Cookie[api]( name, value, options );
-                    v = Cookie.get( name, options );
+                if (api === 'set') {
+                    Cookie[api](name, value, options);
+                    v = Cookie.get(name, options);
 
-                    if ( v === value ) {
-                        output( 'Cookie `' + name + '` 设置成功! 当前值: ' + v );
+                    if (v === value) {
+                        output('Cookie `' + name + '` 设置成功! 当前值: ' + v);
                     }
                     else {
-                        output( 'Cookie `' + name + '` 设置失败! 当前值: ' + v );
+                        output('Cookie `' + name + '` 设置失败! 当前值: ' + v);
                     }
                 }
                 else {
-                    Cookie[api]( name, options );
-                    v = Cookie.get( name, options );
+                    Cookie[api](name, options);
+                    v = Cookie.get(name, options);
 
-                    if ( api === 'remove' ) {
+                    if (api === 'remove') {
                         output(
                             'Cookie `' + name + '` 删除'
-                            + ( v === null ? '成功!' : '失败!')
+                            + (v === null ? '成功!' : '失败!')
                             + ' 当前值: ' + v
-                        );
+                       );
                     }
                     else {
-                        output( 'Cookie `' + name + '` 当前值: ' + v );
+                        output('Cookie `' + name + '` 当前值: ' + v);
                     }
                 }
             }
-            catch( e ) {
-                output( '<span style="color: red">' + e.message + '</span>' );
+            catch(e) {
+                output('<span style="color: red">' + e.message + '</span>');
             }
 
             return false;
         }
 
-        function val( field ) {
+        function val(field) {
             return field ? field.value : '';
         }
 
-        function output( html ) {
+        function output(html) {
             document.getElementById('output').innerHTML = html || '';
         }
 
-        function makeArray( obj ) {
+        function makeArray(obj) {
             var array = [];
             try {
-                array = [].slice.call( obj );
+                array = [].slice.call(obj);
             }
-            catch( e ) {
+            catch(e) {
                 // IE ~~
-                for ( var i = 0, n = obj.length; i < n; i++ ) {
-                    array.push( obj[i] );
+                for (var i = 0, n = obj.length; i < n; i++) {
+                    array.push(obj[i]);
                 }
             }
             return array;
