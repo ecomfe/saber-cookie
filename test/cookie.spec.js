@@ -9,9 +9,9 @@ define(function() {
 
     describe('Cookie', function() {
 
-        var rawText = 'Hi, saber !@#%$(~...';
-
         describe('get', function() {
+
+            var rawText = 'Hi, saber !@#%$(~...';
 
             document.cookie = '__saber_g1=1';
             // document.cookie = '__saber_g2';
@@ -60,12 +60,10 @@ define(function() {
                 'should return raw value for the given name when `options.raw = true`.',
                 function() {
 
-                    expect(
-                        Cookie.get('__saber_g5', {raw: true})
-                   ).toEqual(encodeURIComponent(rawText));
+                    expect(Cookie.get('__saber_g5', {raw: true})).toEqual(encodeURIComponent(rawText));
 
                 }
-           );
+            );
 
         });
 
@@ -81,13 +79,13 @@ define(function() {
                 expect(Cookie.get('__saber_s1')).toEqual('a');
                 expect(Cookie.get('__saber_s1', rawOption)).toEqual(
                     encodeURIComponent('a')
-               );
+                );
 
                 Cookie.set('__saber_s2', 'b', {expires: -1});
                 expect(Cookie.get('__saber_s2')).toEqual(null);
                 expect(Cookie.get('__saber_s2', rawOption)).toEqual(
                     null
-               );
+                );
 
                 Cookie.set('__saber_s3', 'c', {
                     expires: new Date(2020, 1, 1),
@@ -96,7 +94,7 @@ define(function() {
                 expect(Cookie.get('__saber_s3')).toEqual('c');
                 expect(Cookie.get('__saber_s3', rawOption)).toEqual(
                     encodeURIComponent('c')
-               );
+                );
 
                 Cookie.remove('__saber_s4');
                 Cookie.set('__saber_s4', 'd', {
@@ -107,30 +105,30 @@ define(function() {
                 expect(Cookie.get('__saber_s4')).toEqual(null);
                 expect(Cookie.get('__saber_s4', rawOption)).toEqual(
                     null
-               );
+                );
 
                 Cookie.set('__saber_s5', rawText);
                 expect(Cookie.get('__saber_s5')).toEqual(rawText);
                 expect(Cookie.get('__saber_s5', rawOption)).toEqual(
                     encodeURIComponent(rawText)
-               );
+                );
 
             });
 
-            it(
-                'should set a cookie with given name and value when `options.raw = true`.',
-                function() {
+            // it(
+            //     'should set a cookie with given name and value when `options.raw = true`.',
+            //     function() {
 
-                    Cookie.set('__saber_s6', rawText, rawOption);
-                    expect(Cookie.get('__saber_s6')).toEqual(
-                        rawText
-                   );
-                    expect(Cookie.get('__saber_s6', rawOption)).toEqual(
-                        rawText
-                   );
+            //         Cookie.set('__saber_s6', rawText, rawOption);
+            //         expect(Cookie.get('__saber_s6')).toEqual(
+            //             rawText
+            //         );
+            //         expect(Cookie.get('__saber_s6', rawOption)).toEqual(
+            //             rawText
+            //         );
 
-                }
-           );
+            //     }
+            // );
 
             it('should do nothing with given invalid name', function() {
 
