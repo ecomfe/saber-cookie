@@ -3,12 +3,15 @@
 适合移动端的Cookie封装
 
 
+## Installation
+
+通过 [edp](https://github.com/ecomfe/edp) 引入模块：
+
+```sh
+edp import saber-cookie
+```
 
 ## Usage
-
-### 通过`edp`引入模块
-
-    edp import saber-cookie
 
 ### 使用示例:
 
@@ -71,13 +74,13 @@ require( 'saber-cookie', function( Cookie ) {
 
 获取键名为`name`的cookie值, 若cookie不存在或`name`为空，则返回`null`
 
-#### 参数
 
-`name` {string} cookie的键名
+* **name** `{string}` cookie的键名
 
-`options` {Object} 参数可选，支持的配置项:
+* **options** `{Object}` 参数可选，支持的配置项:
 
-* `raw` {boolean} 是否不自动解码(`decodeURIComponent`), 为`true`时会获取未经过解码的cookie原始存储值
+	* **raw** `{boolean}` 是否不自动解码(`decodeURIComponent`), 为`true`时会获取未经过解码的cookie原始存储值
+* _return_ `{string}`
 
 #### 示例
 
@@ -93,19 +96,20 @@ Cookie.get( 'rawcookie', { raw: true } );
 
 设置键名为`name`,值为`value`的新cookie
 
-#### 参数
 
-`name` {string} cookie的键名
+* **name** `{string}` cookie的键名
 
-`value` {string} cookie的原始值
+* **value** `{string}` cookie的原始值
 
-`options` {Object} 参数可选，支持的配置项:
+* **options** `{Object}` 参数可选，支持的配置项:
 
-* `expires` {Date|Number} cookie的过期时间, 为数字时单位为`毫秒`
-* `domain` {string} cookie的域名
-* `path` {string} cookie路径
-* `secure` {boolean} cookie是否安全传输
-* `raw` {boolean} 是否不自动编码(`encodeURIComponent`), 为`true`时参数`value`会以未编码的原始值存储
+    * **expires** `{Date|Number}` cookie的过期时间, 为数字时单位为`毫秒`
+    * **domain** `{string}` cookie的域名
+    * **path** `{string}` cookie路径
+    * **secure** `{boolean}` cookie是否安全传输
+    * **raw** `{boolean}` 是否不自动编码(`encodeURIComponent`), 为`true`时参数`value`会以未编码的原始值存储
+
+* _return_ `{void}`
 
 #### 示例
 
@@ -135,15 +139,16 @@ Cookie.set( 'test6', 'hello, saber', { raw: true } );
 
 删除键名为`name`的cookie
 
-#### 参数
 
-`name` {string} cookie的键名
+* **name** `{string}` cookie的键名
 
-`options` {Object} 参数可选，支持的配置项:
+* **options** `{Object}` 参数可选，支持的配置项:
 
-* `domain` {string} cookie的域名
-* `path` {string} cookie路径
-* `secure` {boolean} cookie是否安全传输
+    * **domain** `{string}` cookie的域名
+    * **path** `{string}` cookie路径
+    * **secure** `{boolean}` cookie是否安全传输
+
+* _return_ `{void}`
 
 #### 示例
 
@@ -154,7 +159,3 @@ Cookie.remove( 'mycookie' );
 // 删除 `baidu.com`域下，路径为 `/` 的键名为 `othercookie` 的cookie
 Cookie.remove( 'othercookie', { domain: 'baidu.com', path: '/' } );
 ```
-
-===
-
-[![Saber](https://f.cloud.github.com/assets/157338/1485433/aeb5c72a-4714-11e3-87ae-7ef8ae66e605.png)](http://ecomfe.github.io/saber/)
