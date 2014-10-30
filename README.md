@@ -68,9 +68,9 @@ require( 'saber-cookie', function( Cookie ) {
 });
 ```
 
-## API
+## Methods
 
-### Cookie.get( name [, options] )
+### get( name [, options] )
 
 获取键名为`name`的cookie值, 若cookie不存在或`name`为空，则返回`null`
 
@@ -92,7 +92,7 @@ Cookie.get( 'mycookie' );
 Cookie.get( 'rawcookie', { raw: true } );
 ```
 
-### Cookie.set( name, value [, options] )
+### set( name, value [, options] )
 
 设置键名为`name`,值为`value`的新cookie
 
@@ -135,7 +135,7 @@ Cookie.set( 'test5', 'baidu', { secure: true });
 Cookie.set( 'test6', 'hello, saber', { raw: true } );
 ```
 
-### Cookie.remove( name [, options] )
+### remove( name [, options] )
 
 删除键名为`name`的cookie
 
