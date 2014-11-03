@@ -1,14 +1,17 @@
 {
     "name": "saber-cookie",
-    "version": "0.1.5",
+    "version": "1.0.0",
     "description": "适合移动端的Cookie封装。",
     "main": "cookie",
     "maintainers": [
+        { "name": "redmed", "email": "qiaogang@baidu.com" }
+    ],
+    "contributors": [
         { "name": "zfkun", "email": "zfkun@msn.com" }
     ],
     "scripts": {},
     "devDependencies": {},
-    "license": "BSD",
+    "license": "MIT",
     "repository": "git://github.com/ecomfe/saber-cookie.git",
     "bugs": "https://github.com/ecomfe/saber-cookie/issues"
 }
