@@ -23,7 +23,7 @@ define(function (require) {
      * @param {string} value cookie原始值
      * @param {Object=} options cookie选项
      * @param {boolean=} options.raw 是否不自动编码
-     * @param {(number= | Date=)} options.expires 有效期，为数字时单位为毫秒
+     * @param {(number | Date)=} options.expires 有效期，为数字时单位为毫秒
      * @param {string=} options.domain 域名
      * @param {string=} options.path 路径
      * @param {boolean=} options.secure 是否安全传输
