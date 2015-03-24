@@ -9,6 +9,9 @@
       "email": "qiaogang2003@163.com"
     }
   ],
+  "edp": {
+      "dependencies": {}
+  },
   "contributors": [
     {
       "name": "zfkun",
