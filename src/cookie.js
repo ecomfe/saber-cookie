@@ -28,7 +28,7 @@ define(function (require) {
      * @param {string=} options.path 路径
      * @param {boolean=} options.secure 是否安全传输
      */
-    exports.set = function(name, value, options) {
+    exports.set = function (name, value, options) {
         if (!isValidName(name)) {
             return;
         }
@@ -57,7 +57,7 @@ define(function (require) {
      * @param {boolean=} options.raw 是否不自动编码
      * @return {?string} 获取的cookie值，获取不到时返回null
      */
-    exports.get = function(name, options) {
+    exports.get = function (name, options) {
         options = options || {};
         return parseCookie(isValidName(name) ? name : '', !options.raw);
     };
@@ -72,7 +72,7 @@ define(function (require) {
      * @param {string=} options.path 路径
      * @param {boolean=} options.secure 是否安全传输
      */
-    exports.remove = function(name, options) {
+    exports.remove = function (name, options) {
         options = options || {};
         options.raw = !0;
         options.expires = new Date(0);
